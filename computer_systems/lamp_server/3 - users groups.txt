@@ -1,0 +1,71 @@
+USERS & GROUPS (FOC Assignment Task 3)
+
+
+01. CREATE GROUPS AND USERS
+
+Create groups
+sudo groupadd sysadmin
+sudo groupadd webdev
+
+Create users and assign them to groups
+sudo useradd -m -G sysadmin,sudo sysadminuser1
+sudo useradd -m -G sysadmin,sudo sysadminuser2
+sudo useradd -m -G webdev webdevuser1
+sudo useradd -m -G webdev webdevuser2
+
+Set passwords for users
+sudo passwd sysadminuser1
+sudo passwd sysadminuser1
+sudo passwd webdevuser1
+sudo passwd webdevuser1
+
+
+VERIFY 01
+
+Check group memberships
+groups sysadminuser1
+groups sysadminuser2
+groups webdevuser1
+groups webdevuser2
+
+Expected output:
+sysadminuser1 : sysadminuser1 sudo sysadmin
+sysadminuser2 : sysadminuser2 sudo sysadmin
+webdevuser1 : webdevuser1 webdev
+webdevuser2 : webdevuser2 webdev
+
+
+02. CREATE DOCUMENT ROOT AND ASSIGN PERMISSIONS
+
+Assign sudo rights only to sysadmin users
+(Already done before by adding them to sudo group)
+
+Create WordPress document root
+sudo mkdir –p /var/www/html/dcitp1a04grp1
+
+Assign ownership and permissions to webdev users
+sudo chown -R www-data:webdev /var/www/html/dcitp1a04grp1
+sudo chmod –R 775 /var/www/html/dcitp1a04grp1
+
+
+VERIFY 02
+
+Check WordPress document root ownership and permissions
+ls -ld /var/www/html/dcitp1a04grp1
+
+Expected output (partial):
+drwxrwxr-x 2 www-data webdev ... /var/www/html/dcitp1a04grp1
+
+Switch to webdevuser1 and try adding a file in WordPress document root
+sudo su – webdevuser1
+cd /var/www/html/dcitp1a04grp1
+touch test.txt
+ls –l
+
+Expected output (partial):
+-rw-r--r-- 1 webdevuser1 webdev ... test.txt
+
+Attempt to run system-level commands as webdevuser1
+sudo apt update
+
+Expected: webdevuser1 should be denied (not in sudoers list)

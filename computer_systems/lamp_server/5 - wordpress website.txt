@@ -1,0 +1,92 @@
+WORDPRESS WEBSITE (FOC Assignment Task 5)
+
+
+01. TRANSFER PRACTICAL LAB DOCUMENTS TO VM
+
+Shut down VM and enable drag-and-drop and copy-paste functionalities in VMware settings
+Options > Guest Isolation
+
+Start the VM, update packages and install VMware Tools
+sudo apt update
+sudo apt install open-vm-tools open-vm-tools-desktop
+sudo reboot
+
+Create and access directory to store documents
+mkdir Practicals
+cd Practicals
+
+Transfer documents to VM (either by dragging and dropping the files from host file explorer to VM file manager, or by copying the files from host file explorer and pasting in VM file manager)
+
+
+VERIFY 01
+
+Verify documents were successfully transferred
+ls *.docx
+
+Open some documents with LibreOffice Writer to confirm file integrity
+
+
+02. CONVERT AND UPLOAD PRACTICAL LAB DOCUMENTS TO WORDPRESS
+
+Bulk rename documents systematically
+for f in Practical\ 0*.docx; do
+  num=$(echo "$f" | grep -oP '(?<=Practical 0)\d')
+  mv "$f" "Practical${num#0}_Original.docx"
+done
+for f in *Practical0?.docx; do
+  num=$(echo "$f" | grep -oP '(?<=Practical0)\d')
+  mv "$f" "Practical${num#0}_Completed.docx"
+done
+
+Bulk export documents to PDF
+libreoffice --headless --convert-to pdf *.docx
+
+Log into WordPress Dashboard
+http://localhost/wp-admin
+
+Navigate to WordPress Media Library and upload documents
+
+
+VERIFY 02
+
+Confirm the uploaded documents appear in the WordPress Media Library
+
+Preview some documents to confirm upload success
+
+
+03. CREATE AND CONFIGURE WORDPRESS WEBSITE
+
+Navigate to WordPress Pages and create essential pages
+- Home
+- Completed Practicals
+- Original Practicals
+
+Add uploaded documents to their respective pages
+
+Configure permalink structure for clean URLs
+
+Create a navigation menu for easy access
+
+
+VERIFY 03
+
+Visit the website frontend to ensure pages load correctly and navigation works
+http://localhost
+
+Verify documents are accessible from their respective pages
+
+
+04. DESIGN WORDPRESS WEBSITE FOR USABILITY AND USER EXPERIENCE
+
+Apply theme, customise colours and typography
+
+Add group details in Home page
+
+Add page headings and short descriptions in Practical pages
+
+Label all document downloads
+
+
+VERIFY 04
+
+Visit the website frontend, confirm text is readable and media loads correctly, confirm website responsiveness and usability

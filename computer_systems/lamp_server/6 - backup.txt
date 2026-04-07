@@ -1,0 +1,45 @@
+BACKUP (FOC Assignment Task 6)
+
+
+01. BACKUP WORDPRESS FILES
+
+Navigate to WordPress root directory
+cd /var/www/html
+
+Create a compressed backup file from the document root
+sudo tar -czvf dcitp1a04grp1-wp-backup.tar.gz dcitp1a04grp1
+
+Move the backup file to backups directory
+mkdir -p ~/Documents/Backups
+sudo mv dcitp1a04grp1-wp-backup.tar.gz ~/Documents/Backups
+
+
+VERIFY 01
+
+Confirm backup file exists in backups directory
+ls ~/Documents/Backups
+
+Test extraction in a temporary directory
+mkdir /tmp/wp-restore-test
+tar -xzvf wordpress-files-backup.tar.gz -C /tmp/wp-restore-test
+
+
+02. BACKUP WORDPRESS MYSQL DB
+
+
+Export WordPress MySQL database
+mysqldump -u root -p wordpress-db-dcitp1a04grp1 > dcitp1a04grp1-db-backup.sql
+
+Move the SQL file to the backups directory
+mv dcitp1a04grp1-db-backup.sql ~/Documents/Backups
+
+
+VERIFY 02
+
+Confirm SQL file exists in backups directory
+ls ~/Documents/Backups
+
+Check first few lines to confirm it is a valid SQL file
+head dcitp1a04grp1-db-backup.sql
+
+Transfer files to host computer using drag-and-drop or copy-and-paste functionalities

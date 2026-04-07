@@ -1,0 +1,110 @@
+WORDPRESS SETUP (FOC Assignment Task 4)
+
+
+01. CREATE MYSQL DATABASE AND USER
+
+Update packages
+sudo apt update
+
+Log in as root user
+mysql -u root -p
+
+Create database and user for WordPress
+CREATE DATABASE `wordpress-db-dcipt1a04grp1`;
+CREATE USER 'wordpress-user-dcitp1a04grp1'@'localhost' IDENTIFIED BY 'ubuntu';
+GRANT ALL PRIVILEGES ON `wordpress-db-dcitp1a04grp1`.* to 'wordpress-user-dcitp1a04grp1'@'localhost';
+FLUSH PRIVILEGES;
+
+
+VERIFY 01
+
+List databases and check if WordPress database was created
+SHOW DATABASES;
+
+Check if WordPress user exists and has privileges
+SELECT user, host FROM mysql.user WHERE user = 'wordpress-user-dcitp1a04grp1';
+SHOW GRANTS FOR 'wordpress-user-dcitp1a04grp1';
+
+Exit MySQL
+exit;
+
+
+02. DOWNLOAD AND SET UP WORDPRESS
+
+Download and extract WordPress
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+
+Configure WordPress
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+nano wordpress/wp-config.php
+
+Update the following lines
+define('DB_NAME', 'wordpress-db-dcitp1a04grp1');
+define('DB_USER', 'wordpress-user-dcitp1a04grp1');
+define('DB_PASSWORD', 'ubuntu');
+
+Generate unique authentication keys and salts from
+https://api.wordpress.org/secret-key/1.1/salt
+and paste them in config file
+
+Copy WordPress files to document root
+cp -r wordpress/* /var/www/html/dcitp1a04grp1
+
+
+VERIFY 02
+
+Check if WordPress files are copied properly to the document root
+ls /var/www/html/dcitp1a04grp1
+
+Confirm details in config file
+grep -E "DB_NAME|DB_USER|DB_PASSWORD|AUTH_KEY" wordpress/wp-config.php
+
+
+03. CONFIGURE APACHE DOCUMENT ROOT
+
+Configure Apache
+sudo nano /etc/apache2/sites-available/000-default.conf
+
+Update the following line
+DocumentRoot /var/www/html/dcitp1a04grp1
+
+Restart Apache
+sudo systemctl restart apache2
+
+
+VERIFY 03
+
+Confirm document root is correctly set in config file
+grep DocumentRoot /etc/apache2/sites-available/000-default.conf
+
+Check Apache service status
+sudo systemctl status apache2
+
+
+04. COMPLETE WORDPRESS INSTALLATION VIA WEB INTERFACE
+
+Open browser and visit
+http://localhost
+
+Select language and continue
+
+Sign up and run installation
+
+
+VERIFY 04
+
+Log in to admin dashboard and confirm no errors
+
+View Ubuntu system logs
+sudo tail -n 20 /var/log/syslog
+
+View Ubuntu system logs using modern method
+sudo journalctl -n 20
+
+View Apache web server access and error logs
+sudo tail -n 20 /var/log/apache2/access.log
+sudo tail -n 20 /var/log/apache2/error.log
+
+View MySQL server logs
+sudo tail -n 20 /var/log/mysql/error.log

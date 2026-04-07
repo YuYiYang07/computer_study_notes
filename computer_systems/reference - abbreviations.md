@@ -1,0 +1,32 @@
+# Abbreviations
+
+- ALU: Arithmetic and Logic Unit
+- AP: Access Point
+- BIOS: Basic Input/Output System
+- CMOS: Complementary Metal Oxide Semiconductor (Stores settings and configs for BIOS)
+- CPU: Central Processing Unit (The "brains" of a computer)
+- CU: Control Unit
+- HDD: Hard Disk Drive
+- HTTP: Hypertext Transfer Protocol
+- ICMP: Internet Message Control Protocol
+- I/O: Input/Output
+- IP: Internet Protocol
+- IR: Instruction Register (Stores current instruction for program)
+- LAN: Local Area Network
+- LMC: Little Man Computer
+- MAC: Media Access Control (MAC Address)
+- MAN: Metropolitan Area Network
+- NIC: Network Interface Card
+- OS: Operating System
+- OSI: Open Systems Interconnection (OSI model)
+- OUI: Organisationally Unique Identifier
+- PAN: Personal Area Network
+- PC: Program Counter
+- POST: Power-On Self Test
+- RAM: Random Access Memory
+- ROM: Read-Only Memory
+- SSD: Solid State Drive
+- SSID: Service Set Identifier
+- TCP: Transmission Control Protocol
+- WAN: Wide Area Network
+- WAP: Wireless Access Point

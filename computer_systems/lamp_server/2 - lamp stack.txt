@@ -1,0 +1,91 @@
+LAMP STACK (FOC Assignment Task 2)
+
+
+01. INSTALL APACHE
+
+Update packages
+sudo apt update
+
+Install Apache2
+sudo apt install apache2
+
+Enable Apache to start on boot (as per assignment requirement) then start Apache service
+sudo systemctl enable apache2
+sudo systemctl start apache2
+
+
+VERIFY 01
+
+Check Apache service status
+sudo systemctl status apache2
+
+Expected output (partial):
+Active: active (running)
+
+Open browser and attempt to visit Apache default web page
+http://localhost
+
+Expected: Apache default web page loads
+
+
+02. INSTALL PHP
+
+Install PHP and other relevant modules
+sudo apt install php php-cli php-mysql php-json php-opcache php-mbstring php-xml php-gd php-curl
+
+Restart Apache to load PHP then ensure Apache is running
+sudo systemctl restart apache2
+sudo systemctl status apache2
+
+
+VERIFY 02
+
+Create test file
+sudo nano /var/www/html/test.php
+
+Write in test file
+<?php
+phpinfo();
+?>
+
+Save changes (Ctrl+O) and exit text editor (Ctrl+X)
+
+Open browser and attempt to visit PHP config page (test file)
+http://localhost/test.php
+
+Expected: PFP config page loads
+
+Remove test file (for security)
+sudo rm /var/www/html/test.php
+
+Open browser and attempt to visit again
+http://localhost/test.php
+
+Expected: URL not found (test file successfully removed)
+
+
+03. INSTALL MYSQL
+
+Install MySQL
+sudo apt install mysql-server
+
+Secure the installation (choose 'yes' for everything)
+sudo mysql_secure_installation
+
+Disable MySQL from starting on boot (as per assignment requirement) then start MySQL service
+sudo systemctl disable mysql
+sudo systemctl start mysql
+
+
+VERIFY 03
+
+Check MySQL service status
+sudo systemctl status mysql
+
+Expected output (partial):
+Active: active (running)
+
+Login to MySQL CLI (command-line interface / terminal interface)
+sudo mysql -u root -p
+
+Expected: Login successful

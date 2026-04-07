@@ -1,0 +1,44 @@
+VMWARE (FOC Assignment Task 1)
+
+
+01. INSTALL VMWARE
+
+Download VMware Workstation installer from Brightspace and complete setup wizard
+
+
+VERIFY 01
+
+Open Start Menu, search for "VMware Workstation" and launch the application
+
+Expected: VMware dashboard loads successfully with no errors
+
+
+02. CREATE NEW VM
+
+Download Ubuntu 22.04 image from Brightspace, set up a new VM in VMware Workstation and load the image
+
+Create the VM with the following settings (DEFAULT):
+- Storage: 20.0 GB
+- Memory: 4096 MB
+- CPU Cores: 2
+- Network Type: NAT (Network Address Translation)
+- Disk Type: SCSI (Small Computer System Interface)
+- I/O Controller Type: LSI (Large Scale Integration) Logic
+
+Open terminal on VM and change hostname (VM name)
+sudo hostnamectl set-hostname dcitp1a04grp1-vm
+
+
+VERIFY 02
+
+Verify hostname via hostname control
+hostnamectl
+
+Expected output (partial):
+Static hostname: dcitp1a04grp1-vm
+
+Verify hostname via query system information
+uname -n
+
+Expected output:
+dcitp1a04grp1-vm
