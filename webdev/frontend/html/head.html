@@ -1,0 +1,43 @@
+<head>
+    Document metadata container
+
+    <title>Page title (for browser toolbar/tab)</title>
+
+    <meta charset="UTF-8"> (define character set used)
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> (configure viewport for responsive design)
+    <meta name="keywords" content="keyword1, keyword2, keyword3"> (define keywords for search engines)
+    <meta name="description" content="Description"> (define page description for search engines/previews)
+    <meta name="author" content="John Doe"> (define page author)
+    <meta name="robots" content="index, follow"> (tell search engines whether to index page/follow links)
+    <meta name="theme-color" content="#ffffff"> (set browser UI theme colour on supported devices)
+    <meta http-equiv="refresh" content="30"> (refresh page every 30 seconds)
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> (legacy browser compatibility hint)
+
+    <base href="https://example.com" target="_blank"> (specify base URL and/or target
+    for all relative URLs in current page)
+
+    <link rel="canonical" href="https://example.com/current-page"> (preferred URL for search engines)
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> (connect early to external origin)
+    <link rel="preload" href="hero-image.jpg" as="image"> (preload important resource)
+    <link rel="prefetch" href="next-page.html"> (fetch resource likely needed later)
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> (favicon, for browser toolbar / tab)
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"> (icon for iOS home screen)
+
+    <link rel="stylesheet" href="style.css"> (external stylesheet)
+    <link rel="stylesheet" href="print.css" media="print"> (external stylesheet only for printing)
+
+    <script src="script.js"></script> (external scripts,
+    use script[defer] to start execution only after HTML loads,
+    use script[async] to start execution ASAP)
+    <script type="module" src="script.mjs"></script> (external ESM scripts)
+
+    <style>
+        /* CSS styling */
+    </style>
+
+    <script>
+        // Javascript code
+    </script>
+</head>

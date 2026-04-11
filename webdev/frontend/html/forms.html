@@ -1,0 +1,158 @@
+<form action="https://example.com" method="post" enctype="multipart/form-data" autocomplete="on">
+    <!--
+        form[action]: URI/URL to send form data to
+        form[method]: HTTP method used to send form data
+                      post = attach data to request body
+                      get = attach data behind URL as query string
+                      dialog = (if form in dialog) close dialog on submit
+        form[novalidate]: disable input validation on submit
+        form[enctype]: how form data is encoded when sent
+                       application/x-www-form-urlencoded = default
+                       multipart/form-data = required for file uploads
+                       text/plain = plain text encoding
+        form[autocomplete]: enable/disable browser autofill for form fields
+
+        input[name]: used to identify data from specific input when being sent to server
+                     if omitted, the browser doesn't send that input's data
+                     also used to group checkboxes and radio buttons
+        input[required]: make input required for submission
+        input[value]: initial input value
+        input[placeholder]: hint text shown when field is empty
+        input[readonly]: field cannot be edited, but value is still submitted
+        input[disabled]: field cannot be edited and value is not submitted
+        input[checked]: preselect checkbox/radio button
+        input[selected]: preselect dropdown option
+        input[minlength/maxlength]: minimum/maximum text length
+        input[min/max/step]: numeric/date range and interval
+        input[pattern]: regex pattern for validation
+        input[accept]: allowed file types for file upload
+        input[autocomplete]: browser autofill hint
+        input[autofocus]: focus field automatically on page load
+
+        label[for]: bind to input element via input[id]
+
+        fieldset: group related form controls
+        legend: caption/title for a fieldset
+    -->
+
+    <!-- Text field -->
+    <label for="textfield">Text field</label>
+    <input type="text" name="textfield" id="textfield">
+
+    <!-- Email field -->
+    <label for="emailfield">Email field</label>
+    <input type="email" name="emailfield" id="emailfield">
+
+    <!-- Password field -->
+    <label for="passwordfield">Password field</label>
+    <input type="password" name="passwordfield" id="passwordfield">
+
+    <!-- Telephone field -->
+    <label for="telephonefield">Telephone field</label>
+    <input type="tel" name="telephonefield" id="telephonefield">
+
+    <!-- URL field -->
+    <label for="urlfield">URL field</label>
+    <input type="url" name="urlfield" id="urlfield">
+
+    <!-- Search field -->
+    <label for="searchfield">Search field</label>
+    <input type="search" name="searchfield" id="searchfield">
+
+    <!-- Number field (input[value] = initial input value) -->
+    <label for="numberfield">Number field</label>
+    <input type="number" name="numberfield" id="numberfield" min="0" max="100" value="0" step="0.1">
+
+    <!-- Range slider (input[step] can be any integer, decimal, or just "any") -->
+    <label for="rangeslider">Range slider</label>
+    <input type="range" name="rangeslider" id="rangeslider" min="0" max="100" value="25" step="5">
+
+    <!-- Checkboxes (group via input[name]) -->
+    <input type="checkbox" name="checkbox-group" id="checkbox-1" value="checkbox-1">
+    <label for="checkbox-1">Checkbox 1</label>
+    <input type="checkbox" name="checkbox-group" id="checkbox-2" value="checkbox-2">
+    <label for="checkbox-2">Checkbox 2</label>
+    <input type="checkbox" name="checkbox-group" id="checkbox-3" value="checkbox-3">
+    <label for="checkbox-3">Checkbox 3</label>
+
+    <!-- Radio buttons (group via input[name]) -->
+    <input type="radio" name="radio-group" id="radio-1" value="radio-1">
+    <label for="radio-1">Radio button 1</label>
+    <input type="radio" name="radio-group" id="radio-2" value="radio-2">
+    <label for="radio-2">Radio button 2</label>
+    <input type="radio" name="radio-group" id="radio-3" value="radio-3">
+    <label for="radio-3">Radio button 3</label>
+
+    <!-- Textarea (multiline text box) -->
+    <label for="textarea">Textarea</label>
+    <textarea name="textarea" id="textarea" cols="30 (optional)"
+        rows="10 (optional)">Textarea initial text content</textarea>
+
+    <!-- Text field with autocomplete (bind to datalist via input[list]) -->
+    <label for="autocomplete">Text field with autocomplete</label>
+    <input type="text" name="autocomplete" id="autocomplete" list="autocomplete-datalist">
+    <datalist id="autocomplete-datalist">
+        <option value="Option 1">Description 1</option>
+        <option value="Option 2">Description 2</option>
+        <option value="Option 3">Description 3</option>
+    </datalist>
+
+    <!-- Dropdown (allow multiple selection via select[multiple]) -->
+    <label for="dropdown">Dropdown</label>
+    <select name="dropdown" id="dropdown" multiple>
+        <option value="" selected>Select 1 or more options...</option>
+        <option value="option-1">Option 1</option>
+
+        <optgroup label="Dropdown option group">
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+        </optgroup>
+    </select>
+
+    <!-- File upload -->
+    <label for="fileupload">File upload</label>
+    <input type="file" name="fileupload" id="fileupload">
+
+    <!-- Image upload -->
+    <label for="imageupload">Image upload</label>
+    <input type="file" name="imageupload" id="imageupload" accept="image/*">
+
+    <!-- Colour picker -->
+    <label for="colourpicker">Colour picker</label>
+    <input type="color" name="colourpicker" id="colourpicker" value="#ffcc00">
+
+    <!-- Date field -->
+    <label for="datefield">Date field</label>
+    <input type="date" name="datefield" id="datefield">
+
+    <!-- Time field -->
+    <label for="timefield">Time field</label>
+    <input type="time" name="timefield" id="timefield">
+
+    <!-- Local datetime field -->
+    <label for="datetimefield">Datetime-local field</label>
+    <input type="datetime-local" name="datetimefield" id="datetimefield">
+
+    <!-- Month field -->
+    <label for="monthfield">Month field</label>
+    <input type="month" name="monthfield" id="monthfield">
+
+    <!-- Week field -->
+    <label for="weekfield">Week field</label>
+    <input type="week" name="weekfield" id="weekfield">
+
+    <!-- Group related fields -->
+    <fieldset>
+        <legend>Group title</legend>
+
+        <input type="text">
+        <input type="text">
+        <input type="text">
+    </fieldset>
+
+    <!-- Submit button -->
+    <input type="submit" value="Submit form">
+
+    <!-- Reset button -->
+    <input type="reset" value="Reset form">
+</form>

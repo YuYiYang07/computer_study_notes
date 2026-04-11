@@ -1,0 +1,30 @@
+<img src="https://img.shields.io/badge/image-yellow">
+
+<figure>
+    <img src="https://img.shields.io/badge/image-yellow">
+    <figcaption>Image caption (optional)</figcaption>
+</figure>
+
+<img src="https://img.shields.io/badge/image-yellow" alt="Alt text (recommended)" width="100 (optional)"
+    height="50 (optional)">
+
+<!-- Provide different image sources based on viewport width -->
+<img src="example-fallback.png" srcset="example-small.png 480w, example.png 800w, example-large.png 1200w"
+    sizes="(max-width: 600px) 480px, (max-width: 1000px) 800px, 1200px">
+
+<!-- Provide different image sources based on pixel density (eg. standard vs retina display) -->
+<img src="example.png" srcset="example.png 1x, example-xhdpi.png 2x, example-xxhdpi.png 3x">
+
+<!-- Provide different images (eg. cropped or portrait/landscape versions) based on viewport width -->
+<picture>
+    <source media="(min-width: 1200px)" srcset="example-desktop.png">
+    <source media="(min-width: 800px)" srcset="example-mobile.png">
+    <img src="example-fallback.png">
+</picture>
+
+<!-- Provide different image formats in case browser doesn't support certain formats -->
+<picture>
+    <source srcset="example.png">
+    <source srcset="example.jpg">
+    <img src="example.gif">
+</picture>
