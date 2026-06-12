@@ -201,6 +201,6 @@ This project is licensed under the [MIT License](LICENSE). You are free to use, 
 
 If this repository helped you, please consider giving it a star and sharing it with your peers.
 
-[![Star this repo](https://img.shields.io/github/stars/YuYiYang07/computer_study_notes.svg?style=for-the-badge&logo=github)](https://github.com/YuYiYang07/computer_study_notes)
+[![Star this repo](https://img.shields.io/github/stars/aj-goh/notes.svg?style=for-the-badge&logo=github)](https://github.com/aj-goh/notes)
 
 </div>
